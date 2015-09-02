@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Dice Wars</title>
+
+    <script type="text/javascript" src="./tile.js"></script>
+    <script type="text/javascript" src="./army.js"></script>
+    <script type="text/javascript" src="./game.js"></script>
+
     <link rel="stylesheet" href="./index.css" charset="utf-8">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
   </head>
@@ -30,6 +35,7 @@
 
     <script type="text/javascript">
       $(document).ready(function () {
+        var game = new DiceWars.Game({});
         var $gameBoard = $("#game-board");
 
         for (var i = 0; i < 16; i++) {
