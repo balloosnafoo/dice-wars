@@ -8,19 +8,9 @@
   width: 48px;
   height: 27.71px;
   background-color: #64C7CC;
-  margin: 13.86px 3px;
+  margin: 13.86px 0px;
   display: inline-block;
 }
-
-/* old rule for asking TAs wtf */
-/*.hexagon {
-  position: relative;
-  width: 48px;
-  height: 27.71px;
-  background-color: #64C7CC;
-  margin: 13.86px 3px;
-  display: inline-block;
-}*/
 
 .hexagon:before,
 .hexagon:after {

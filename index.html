@@ -14,28 +14,13 @@
   <body>
     <div id="game-board"></div>
 
-    <!-- <div class="row">
-      <div class="hexagon"></div>
-      <div class="hexagon"></div>
-      <div class="hexagon"></div>
-      <div class="hexagon"></div>
-    </div>
-    <div class="row even">
-      <div class="hexagon"></div>
-      <div class="hexagon"></div>
-      <div class="hexagon"></div>
-      <div class="hexagon"></div>
-    </div>
-    <div class="row odd">
-      <div class="hexagon"></div>
-      <div class="hexagon"></div>
-      <div class="hexagon"></div>
-      <div class="hexagon"></div>
-    </div> -->
-
     <script type="text/javascript">
+      var game = new DiceWars.Game({
+        numRows: 16,
+        numCols: 20,
+      });
+
       $(document).ready(function () {
-        var game = new DiceWars.Game({});
         var $gameBoard = $("#game-board");
 
         for (var i = 0; i < 16; i++) {
@@ -49,7 +34,7 @@
 
           for (var j = 0; j < 20; j++) {
             $('*[data-row-id="' + i + '"]').append(
-              '<div class="hexagon">'
+              '\n<div class="hexagon">'
             );
           }
         }

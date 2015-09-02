@@ -17,34 +17,29 @@
     "red", "green", "blue", "black"
   ];
 
+  Game.RESOURCES = [
+    "oil", "wheat", "iron", "coal"
+  ];
+
   Game.prototype.allocateTiles = function () {
-    this.chooseOrigins();
-    this.fillInTiles();
-  };
-
-  Game.prototype.chooseOrigins = function () {
-    for (var i = 0; i < this.numArmies; i++) {
-      var row = Math.floor(Math.random() * this.numRows);
-      var col = Math.floor(Math.random() * this.numCols);
-      while (this.gridAt(row, col).color) {
-        row = Math.floor(Math.random() * this.numRows);
-        col = Math.floor(Math.random() * this.numCols);
+    for (var i = 0; i < this.grid.length; i++) {
+      for (var j = 0; j < this.grid[i].length; j++) {
+        this.tileAt(i, j).update({
+          color: Game.COLORS[Math.floor(Math.random * this.numArmies)],
+          resource:
+            Game.RESOURCES[Math.floor(Math.random * Game.RESOURCES.length)]
+        });
       }
-
-      this.gridAt(row, col).color = this.armies[i].color;
     }
-  };
-
-  Game.prototype.fillInTiles = function () {
-
   };
 
   Game.prototype.generateArmies = function () {
     var armies = [];
     for (var i = 0; i < this.numArmies; i++) {
-      armies.push(new DiceWars.Army({
-        color: Game.COLORS[i],
-        id: i
+      armies.push(
+        new DiceWars.Army({
+          color: Game.COLORS[i],
+          id: i
         })
       );
     }
@@ -52,7 +47,11 @@
   };
 
   Game.prototype.tileAt = function (row, col) {
+    return this.grid[row][col];
+  };
 
+  Game.prototype.setGridAt = function (row, col, val) {
+    this.grid[row][col] = val;
   };
 
   Game.prototype.generateGrid = function () {
@@ -60,7 +59,7 @@
     for (var i = 0; i < this.numRows; i++) {
       var row = [];
       for (var j = 0; j < this.numCols; j++) {
-        row.push(new DiceWars.Tile());
+        row.push(new DiceWars.Tile({}));
       }
       grid.push(row);
     }
