@@ -25,9 +25,9 @@
     for (var i = 0; i < this.grid.length; i++) {
       for (var j = 0; j < this.grid[i].length; j++) {
         this.tileAt(i, j).update({
-          color: Game.COLORS[Math.floor(Math.random * this.numArmies)],
+          color: Game.COLORS[Math.floor(Math.random() * this.numArmies)],
           resource:
-            Game.RESOURCES[Math.floor(Math.random * Game.RESOURCES.length)]
+            Game.RESOURCES[Math.floor(Math.random() * Game.RESOURCES.length)]
         });
       }
     }

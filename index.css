@@ -12,6 +12,22 @@
   display: inline-block;
 }
 
+.hexagon.green {
+  color: green;
+}
+
+.hexagon.red {
+  color: red;
+}
+
+.hexagon.blue {
+  color: blue;
+}
+
+.hexagon.black {
+  color: black;
+}
+
 .hexagon:before,
 .hexagon:after {
   content: "";

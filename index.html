@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var game = new DiceWars.Game({
         numRows: 16,
-        numCols: 20,
+        numCols: 20
       });
 
       $(document).ready(function () {
@@ -34,7 +34,7 @@
 
           for (var j = 0; j < 20; j++) {
             $('*[data-row-id="' + i + '"]').append(
-              '\n<div class="hexagon">'
+              '\n<div class="hexagon ' + game.tileAt(i, j).color + '">'
             );
           }
         }
